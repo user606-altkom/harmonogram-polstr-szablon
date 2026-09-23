@@ -33,12 +33,12 @@ description: "Lista zadań implementacyjnych kalkulatora harmonogramu POLSTR"
 
 **Niezależne kryterium testowe**: Dla 40 000 000 gr, 300 rat, serii stałej `0.0355` przekazanej wprost i marży `0.0211`, pierwsza rata wynosi 249 472 gr +/- 5 gr, ostatnia 249 253 gr +/- 5 gr, suma kapitału wynosi 40 000 000 gr, a saldo końcowe 0 gr.
 
-- [ ] T001 [US1] Dodać w `tests/harmonogram.test.ts` czerwony test liczby kontrolnej z `BRIEF.md` dla rat równych przy stałej stopie, przekazując serię `0.0355` wprost, oraz usunąć z `tests/smoke.test.ts` przestarzałą asercję wyjątku `nie zaimplementowano` albo zastąpić ją asercją aktualnego harmonogramu
-- [ ] T002 [US1] Zdefiniować w `src/domena/harmonogram.ts` jawne typy parametrów, wpisu serii, raty i harmonogramu z kwotami jako całkowite liczby groszy
-- [ ] T002A [US1] Dodać w `tests/harmonogram.test.ts` czerwone przypadki walidacji dla nie dodatniej kwoty lub liczby rat, nieistniejącej daty `YYYY-MM-DD`, ujemnej lub nieskończonej marży oraz pustej lub niepoprawnej serii wskaźnika
-- [ ] T003 [US1] Zaimplementować w `src/domena/harmonogram.ts` walidację dodatniej kwoty i liczby rat, istniejącej daty `YYYY-MM-DD`, nieujemnej skończonej marży oraz niepustej poprawnej serii
-- [ ] T004 [US1] Zaimplementować w `src/domena/harmonogram.ts` czystą funkcję obliczającą raty równe według stopy `(wskaznik + marza) / 12`, z `Math.round` do grosza i wyrównaniem ostatniej raty do salda
-- [ ] T005 [US1] Uruchomić test kontrolny w `tests/harmonogram.test.ts` i doprowadzić go do wyniku zgodnego z tolerancją z `BRIEF.md`
+- [x] T001 [US1] Dodać w `tests/harmonogram.test.ts` czerwony test liczby kontrolnej z `BRIEF.md` dla rat równych przy stałej stopie, przekazując serię `0.0355` wprost, oraz usunąć z `tests/smoke.test.ts` przestarzałą asercję wyjątku `nie zaimplementowano` albo zastąpić ją asercją aktualnego harmonogramu
+- [x] T002 [US1] Zdefiniować w `src/domena/harmonogram.ts` jawne typy parametrów, wpisu serii, raty i harmonogramu z kwotami jako całkowite liczby groszy
+- [x] T002A [US1] Dodać w `tests/harmonogram.test.ts` czerwone przypadki walidacji dla nie dodatniej kwoty lub liczby rat, nieistniejącej daty `YYYY-MM-DD`, ujemnej lub nieskończonej marży oraz pustej lub niepoprawnej serii wskaźnika
+- [x] T003 [US1] Zaimplementować w `src/domena/harmonogram.ts` walidację dodatniej kwoty i liczby rat, istniejącej daty `YYYY-MM-DD`, nieujemnej skończonej marży oraz niepustej poprawnej serii
+- [x] T004 [US1] Zaimplementować w `src/domena/harmonogram.ts` czystą funkcję obliczającą raty równe według stopy `(wskaznik + marza) / 12`, z `Math.round` do grosza i wyrównaniem ostatniej raty do salda
+- [x] T005 [US1] Uruchomić test kontrolny w `tests/harmonogram.test.ts` i doprowadzić go do wyniku zgodnego z tolerancją z `BRIEF.md`
 
 ## Faza 4: Rozszerzenie historii użytkownika 1 - Zmienne stopy i raty malejące
 
@@ -46,13 +46,13 @@ description: "Lista zadań implementacyjnych kalkulatora harmonogramu POLSTR"
 
 **Niezależne kryterium testowe**: Testy potwierdzają równy podział kapitału w ratach malejących, użycie zmienionej stopy od właściwej daty oraz użycie ostatniej wartości serii po jej zakończeniu.
 
-- [ ] T006 [P] [US1] Dodać w `tests/dane.test.ts` testy importu serii POLSTR 1M i WIBOR 3M oraz wyboru właściwej serii przez jej identyfikator
-- [ ] T007 [P] [US1] Dodać w `tests/harmonogram.test.ts` czerwone testy rat malejących, zmiany stopy od daty wpisu, użycia ostatniej znanej wartości serii oraz generowania dat w UTC z przejściem z `2026-01-31` na ostatni dzień lutego `2026-02-28`
-- [ ] T008 [US1] Zaimplementować w `src/dane/wskazniki.ts` import JSON z `dane/polstr-1m.json` i `dane/wibor-3m.json`, zdefiniować osobny typ identyfikatora wskaźnika niezależny od `ParametryKredytu` oraz typowany wybór serii bez modyfikowania plików `dane/`
-- [ ] T009 [US1] Rozszerzyć w `src/domena/harmonogram.ts` wybór stopy o najpóźniejszy wpis z `od <= dataRaty`, błąd dla raty sprzed pierwszego wpisu i utrzymanie ostatniej wartości po końcu serii
-- [ ] T010 [US1] Rozszerzyć w `src/domena/harmonogram.ts` generowanie dat miesięcznych w UTC, używając ostatniego dnia miesiąca, gdy docelowy dzień nie istnieje
-- [ ] T011 [US1] Rozszerzyć w `src/domena/harmonogram.ts` obliczenia o typ `malejace`, w którym kapitał jest dzielony równo na pozostałe planowane raty, a saldo nie może spaść poniżej zera
-- [ ] T012 [US1] Uruchomić testy domeny i danych w `tests/harmonogram.test.ts` oraz `tests/dane.test.ts` dla zmiennych stóp i rat malejących
+- [X] T006 [P] [US1] Dodać w `tests/dane.test.ts` testy importu serii POLSTR 1M i WIBOR 3M oraz wyboru właściwej serii przez jej identyfikator
+- [X] T007 [P] [US1] Dodać w `tests/harmonogram.test.ts` czerwone testy rat malejących, zmiany stopy od daty wpisu, użycia ostatniej znanej wartości serii oraz generowania dat w UTC z przejściem z `2026-01-31` na ostatni dzień lutego `2026-02-28`
+- [X] T008 [US1] Zaimplementować w `src/dane/wskazniki.ts` import JSON z `dane/polstr-1m.json` i `dane/wibor-3m.json`, zdefiniować osobny typ identyfikatora wskaźnika niezależny od `ParametryKredytu` oraz typowany wybór serii bez modyfikowania plików `dane/`
+- [X] T009 [US1] Rozszerzyć w `src/domena/harmonogram.ts` wybór stopy o najpóźniejszy wpis z `od <= dataRaty`, błąd dla raty sprzed pierwszego wpisu i utrzymanie ostatniej wartości po końcu serii
+- [X] T010 [US1] Rozszerzyć w `src/domena/harmonogram.ts` generowanie dat miesięcznych w UTC, używając ostatniego dnia miesiąca, gdy docelowy dzień nie istnieje
+- [X] T011 [US1] Rozszerzyć w `src/domena/harmonogram.ts` obliczenia o typ `malejace`, w którym kapitał jest dzielony równo na pozostałe planowane raty, a saldo nie może spaść poniżej zera
+- [X] T012 [US1] Uruchomić testy domeny i danych w `tests/harmonogram.test.ts` oraz `tests/dane.test.ts` dla zmiennych stóp i rat malejących
 
 ## Faza 5: Historia użytkownika 2 - Nadpłaty (Priorytet: P2)
 
@@ -60,12 +60,12 @@ description: "Lista zadań implementacyjnych kalkulatora harmonogramu POLSTR"
 
 **Niezależne kryterium testowe**: Dwa harmonogramy z identyczną nadpłatą wykazują odpowiednio zachowanie daty końcowej z niższą kolejną ratą albo krótszą liczbę rat; żaden nie ma ujemnego salda.
 
-- [ ] T013 [US2] Dodać w `tests/harmonogram.test.ts` czerwone testy nadpłat `obniz_rate` i `skroc_okres`, sumowania zgodnych nadpłat, ograniczenia nadpłaty do pozostałego salda oraz zakończenia obu trybów w miesiącu całkowitej spłaty
-- [ ] T014 [US2] Rozszerzyć w `src/domena/harmonogram.ts` o walidację nadpłaty: „liczba całkowita od 1 do planowanej liczby rat”, „dodatnia liczba całkowita w groszach” oraz odrzucenie sprzecznych trybów w tym samym miesiącu
-- [ ] T015 [US2] Zaimplementować w `src/domena/harmonogram.ts` sumowanie nadpłat tego samego miesiąca i trybu oraz kolejność: odsetki od salda początkowego, planowany kapitał, ograniczona nadpłata
-- [ ] T016 [US2] Zaimplementować w `src/domena/harmonogram.ts` tryb `obniz_rate`, zachowujący pierwotną liczbę rat i przeliczający kolejne raty dla nowego salda, z wyjątkiem zakończenia harmonogramu w miesiącu, w którym planowana spłata lub nadpłata wyzeruje saldo
-- [ ] T017 [US2] Zaimplementować w `src/domena/harmonogram.ts` tryb `skroc_okres`, kończący harmonogram bez dalszych rat bezpośrednio po spłacie całego salda
-- [ ] T018 [US2] Uruchomić testy nadpłat i niezmienników w `tests/harmonogram.test.ts`, potwierdzając sumę kapitału równą kwocie kredytu i saldo końcowe 0 gr
+- [X] T013 [US2] Dodać w `tests/harmonogram.test.ts` czerwone testy nadpłat `obniz_rate` i `skroc_okres`, sumowania zgodnych nadpłat, ograniczenia nadpłaty do pozostałego salda oraz zakończenia obu trybów w miesiącu całkowitej spłaty
+- [X] T014 [US2] Rozszerzyć w `src/domena/harmonogram.ts` o walidację nadpłaty: „liczba całkowita od 1 do planowanej liczby rat”, „dodatnia liczba całkowita w groszach” oraz odrzucenie sprzecznych trybów w tym samym miesiącu
+- [X] T015 [US2] Zaimplementować w `src/domena/harmonogram.ts` sumowanie nadpłat tego samego miesiąca i trybu oraz kolejność: odsetki od salda początkowego, planowany kapitał, ograniczona nadpłata
+- [X] T016 [US2] Zaimplementować w `src/domena/harmonogram.ts` tryb `obniz_rate`, zachowujący pierwotną liczbę rat i przeliczający kolejne raty dla nowego salda, z wyjątkiem zakończenia harmonogramu w miesiącu, w którym planowana spłata lub nadpłata wyzeruje saldo
+- [X] T017 [US2] Zaimplementować w `src/domena/harmonogram.ts` tryb `skroc_okres`, kończący harmonogram bez dalszych rat bezpośrednio po spłacie całego salda
+- [X] T018 [US2] Uruchomić testy nadpłat i niezmienników w `tests/harmonogram.test.ts`, potwierdzając sumę kapitału równą kwocie kredytu i saldo końcowe 0 gr
 
 ## Faza 6: Warstwa techniczna - Publiczne API harmonogramu
 
@@ -73,12 +73,12 @@ description: "Lista zadań implementacyjnych kalkulatora harmonogramu POLSTR"
 
 **Niezależne kryterium testowe**: Ręczne wywołanie kontraktowego adresu zwraca status 200, kompletne raty w groszach i saldo końcowe 0 gr; brak wymaganej wartości zwraca 400 i wyłącznie pole `blad`.
 
-- [ ] T018A Rozszerzyć ręczną kontrolę API w T023 o odrzucenie `kwota` oraz kwoty `nadplata` z więcej niż dwoma miejscami po przecinku, oczekując statusu 400 i wyłącznie pola `blad`
-- [ ] T019 Zaimplementować w `app/api/harmonogram/route.ts` parsowanie parametrów kontraktu `kwota`, `liczbaRat`, `pierwszaRata`, `marza`, `typRat`, `wskaznik` i powtarzalnego `nadplata`
-- [ ] T020 Zaimplementować w `app/api/harmonogram/route.ts` jawne odrzucenie kwot `kwota` i `nadplata` z więcej niż dwoma miejscami po przecinku przed konwersją ze złotych do groszy oraz pojedynczą konwersję zaakceptowanych kwot i punktów procentowych marży do ułamka
-- [ ] T021 Podłączyć w `app/api/harmonogram/route.ts` wybór serii z `src/dane/wskazniki.ts` i funkcję z `src/domena/harmonogram.ts`, pozostawiając obliczenia wyłącznie w domenie
-- [ ] T022 Zaimplementować w `app/api/harmonogram/route.ts` odpowiedzi 200 z kontraktowym JSON, 400 z `{ "blad": string }` dla błędów wejścia i 500 bez szczegółów stosu dla błędów nieoczekiwanych
-- [ ] T023 Ręcznie zweryfikować w `specs/001-harmonogram-polstr/quickstart.md` opisane wywołania endpointu oraz odpowiedzi 200 i 400
+- [X] T018A Rozszerzyć ręczną kontrolę API w T023 o odrzucenie `kwota` oraz kwoty `nadplata` z więcej niż dwoma miejscami po przecinku, oczekując statusu 400 i wyłącznie pola `blad`
+- [X] T019 Zaimplementować w `app/api/harmonogram/route.ts` parsowanie parametrów kontraktu `kwota`, `liczbaRat`, `pierwszaRata`, `marza`, `typRat`, `wskaznik` i powtarzalnego `nadplata`
+- [X] T020 Zaimplementować w `app/api/harmonogram/route.ts` jawne odrzucenie kwot `kwota` i `nadplata` z więcej niż dwoma miejscami po przecinku przed konwersją ze złotych do groszy oraz pojedynczą konwersję zaakceptowanych kwot i punktów procentowych marży do ułamka
+- [X] T021 Podłączyć w `app/api/harmonogram/route.ts` wybór serii z `src/dane/wskazniki.ts` i funkcję z `src/domena/harmonogram.ts`, pozostawiając obliczenia wyłącznie w domenie
+- [X] T022 Zaimplementować w `app/api/harmonogram/route.ts` odpowiedzi 200 z kontraktowym JSON, 400 z `{ "blad": string }` dla błędów wejścia i 500 bez szczegółów stosu dla błędów nieoczekiwanych
+- [X] T023 Ręcznie zweryfikować w `specs/001-harmonogram-polstr/quickstart.md` opisane wywołania endpointu oraz odpowiedzi 200 i 400
 
 ## Faza 7: Historia użytkownika 3 - Ekran kalkulatora (Priorytet: P3)
 
@@ -86,19 +86,19 @@ description: "Lista zadań implementacyjnych kalkulatora harmonogramu POLSTR"
 
 **Niezależne kryterium testowe**: W przeglądarce użytkownik wprowadza poprawne dane, widzi pierwszą i ostatnią ratę, sumę odsetek i tabelę, a wyeksportowany CSV odpowiada tabeli; błędne dane nie pozostawiają starego wyniku.
 
-- [ ] T024 [US3] Zastąpić w `app/page.tsx` dostarczonym komponentem React z dyrektywą `'use client'` w pierwszej linii, zachowując Tailwind i bez bibliotek UI
-- [ ] T025 [US3] Podłączyć w `app/page.tsx` formularz parametrów do `fetch('/api/harmonogram?...')`, serializując wszystkie pola oraz powtarzalne nadpłaty zgodnie z `contracts/harmonogram-api.md`
-- [ ] T026 [US3] Zaimplementować w `app/page.tsx` stan ładowania, komunikat pola `blad`, czyszczenie poprzedniego wyniku po błędzie oraz prezentację pierwszej raty, ostatniej raty, sumy odsetek i tabeli rat
-- [ ] T027 [US3] Zaimplementować w `app/page.tsx` eksport CSV po stronie przeglądarki z kolumnami widocznej tabeli i wartościami po zaokrągleniu
-- [ ] T028 [US3] Ręcznie zweryfikować w `app/page.tsx` pełny przepływ formularza, tabeli, błędu i pobrania CSV opisany w `specs/001-harmonogram-polstr/quickstart.md`
+- [X] T024 [US3] Zastąpić w `app/page.tsx` dostarczonym komponentem React z dyrektywą `'use client'` w pierwszej linii, zachowując Tailwind i bez bibliotek UI
+- [X] T025 [US3] Podłączyć w `app/page.tsx` formularz parametrów do `fetch('/api/harmonogram?...')`, serializując wszystkie pola oraz powtarzalne nadpłaty zgodnie z `contracts/harmonogram-api.md`
+- [X] T026 [US3] Zaimplementować w `app/page.tsx` stan ładowania, komunikat pola `blad`, czyszczenie poprzedniego wyniku po błędzie oraz prezentację pierwszej raty, ostatniej raty, sumy odsetek i tabeli rat
+- [X] T027 [US3] Zaimplementować w `app/page.tsx` eksport CSV po stronie przeglądarki z kolumnami widocznej tabeli i wartościami po zaokrągleniu
+- [X] T028 [US3] Ręcznie zweryfikować w `app/page.tsx` pełny przepływ formularza, tabeli, błędu i pobrania CSV opisany w `specs/001-harmonogram-polstr/quickstart.md`
 
 ## Faza 8: Dopracowanie i zagadnienia przekrojowe
 
 **Cel**: Potwierdzić zgodność jakościową kompletnego przyrostu bez rozszerzania zakresu.
 
-- [ ] T029 Przejrzeć `src/domena/harmonogram.ts`, `src/dane/wskazniki.ts`, `app/api/harmonogram/route.ts` i `app/page.tsx` pod kątem strict TypeScript, braku `any`, polskich komunikatów oraz granicy czystej domeny
-- [ ] T029A Dodać w `tests/wydajnosc.test.ts` jawny pomiar czasu obliczenia kompletnego przypadku kontrolnego z 300 ratami i asercję wyniku poniżej 2 sekund, zgodnie z SC-003
-- [ ] T030 Uruchomić `npm test`, `npm run typecheck` i `npm run build` z katalogu głównego repozytorium, uwzględniając pomiar wydajności z T029A
+- [X] T029 Przejrzeć `src/domena/harmonogram.ts`, `src/dane/wskazniki.ts`, `app/api/harmonogram/route.ts` i `app/page.tsx` pod kątem strict TypeScript, braku `any`, polskich komunikatów oraz granicy czystej domeny
+- [X] T029A Dodać w `tests/wydajnosc.test.ts` jawny pomiar czasu obliczenia kompletnego przypadku kontrolnego z 300 ratami i asercję wyniku poniżej 2 sekund, zgodnie z SC-003
+- [X] T030 Uruchomić `npm test`, `npm run typecheck` i `npm run build` z katalogu głównego repozytorium, uwzględniając pomiar wydajności z T029A
 
 ## Zależności i kolejność realizacji
 
@@ -125,3 +125,29 @@ US1 -> US2 -> API -> US3 -> Dopracowanie
 2. Rozszerzyć US1 o serie i raty malejące, a następnie dodać US2 z nadpłatami.
 3. Udostępnić gotową domenę przez warstwę API, a następnie podłączyć ekran US3.
 4. Po każdej fazie wykonać właściwe testy, pokazać diff i nie zaczynać kolejnej fazy bez polecenia.
+
+## Phase 9: Convergence
+
+- [X] T031 [US1] Dodać w `tests/harmonogram.test.ts` i `tests/dane.test.ts` brakujące testy dla zmiennej stopy, ostatniej znanej wartości wskaźnika i dat UTC z przejściem z `2026-01-31` na `2026-02-28` per FR-003, FR-005, SC-004 (missing)
+- [X] T032 [US2] Rozszerzyć w `src/domena/harmonogram.ts` logikę nadpłat tak, aby tryby `obniz_rate` i `skroc_okres` miały rozdzielone zachowanie, ograniczały nadpłatę do salda i kończyły harmonogram w miesiącu pełnej spłaty per FR-008, US2/AC1-AC3, SC-004 (missing)
+- [X] T033 [US2] Dodać w `src/domena/harmonogram.ts` walidację i agregację nadpłat tego samego miesiąca oraz testy dla sprzecznych trybów i przekroczenia salda per FR-008, FR-010, SC-006 (partial)
+- [X] T034 [API] Uzupełnić w `app/api/harmonogram/route.ts` pełną walidację kontraktu, w tym kwoty z maksymalnie dwoma miejscami po przecinku oraz odpowiedzi 400/500 zgodnie z FR-010, FR-011, SC-005, SC-006 (partial)
+- [X] T035 [US3] Dokończyć w `app/page.tsx` obsługę błędów, poprawne wyświetlanie wyników i eksport CSV z kolumnami widocznej tabeli per FR-011, FR-012, SC-005, SC-006 (partial)
+- [X] T036 [Wydajność] Dodać w `tests/wydajnosc.test.ts` i wykonać `npm test`, `npm run typecheck` oraz `npm run build` z pomiarem 300-ratowego przypadku per SC-003, T029A, T030 (missing)
+
+## Phase 10: Convergence
+
+- [X] T037 [US2] Uzupełnić w `src/domena/harmonogram.ts` rozdzielenie trybów `obniz_rate` i `skroc_okres` oraz scenariusze nadpłat dla tego samego miesiąca, tak aby saldo nie było ujemne i końcowy harmonogram był zgodny z FR-008, US2/AC1-AC3, SC-004 (partial)
+- [X] T038 [API] Ujednolicić w `app/api/harmonogram/route.ts` walidację wejścia, format `blad` i odpowiedzi 400/500 zgodnie z kontraktem i wymaganiami FR-010, SC-005, SC-006 (partial)
+- [X] T039 [US3] Dokończyć w `app/page.tsx` pełną obsługę błędów, precyzyjne wyświetlanie wyników i eksport CSV zgodnie z FR-011, FR-012, SC-005, SC-006 (partial)
+- [X] T040 [Wydajność] Dodać w `tests/wydajnosc.test.ts` test pomiaru czasu 300-ratowego przypadku i potwierdzić limit 2 sekund per SC-003, T029A, T030 (missing)
+
+## Phase 11: Convergence
+
+- [X] T041 [Jakość] Usunąć testowanie route handlera API z `tests/smoke.test.ts` albo przenieść tę kontrolę poza testy Vitest domeny i danych per Constitution III (contradicts)
+- [X] T042 [US2] Rozdzielić w `src/domena/harmonogram.ts` zachowanie nadpłat `obniz_rate` i `skroc_okres`, przeliczać kolejne raty w trybie obniżenia raty oraz ograniczać nadpłatę do pozostałego salda per FR-008, US2/AC1-AC3 (partial)
+- [X] T043 [API] Mapować w `app/api/harmonogram/route.ts` błędy walidacji danych, nieistniejącej daty i braku wartości wskaźnika na odpowiedź 400 z wyłącznie polem `blad`, pozostawiając 500 dla błędów nieoczekiwanych per FR-010, contracts/harmonogram-api.md (partial)
+- [X] T044 [US1] Dodać w `tests/harmonogram.test.ts` i `tests/dane.test.ts` testy zmiany stopy, użycia ostatniej znanej wartości oraz przejścia daty UTC z `2026-01-31` na `2026-02-28` per FR-003, FR-005, SC-004, T031 (missing)
+- [X] T045 [US3] Ujednolicić w `app/page.tsx` kolumny widocznej tabeli i eksportu CSV oraz domknąć obsługę błędu i wyniku bez prezentowania nieaktualnych danych per FR-011, SC-005, T039 (partial)
+- [X] T046 [Wydajność] Dodać w `tests/wydajnosc.test.ts` pomiar kompletnego przypadku kontrolnego 300 rat z asercją czasu poniżej 2 sekund per SC-003, T029A, T040 (missing)
+- [X] T047 [US1] Rozszerzyć w `src/domena/harmonogram.ts` walidację każdego wpisu serii o istniejącą datę `od` i skończoną poprawną stopę oraz dodać przypadki odrzucenia niepoprawnej serii per FR-010, przypadki brzegowe (partial)
