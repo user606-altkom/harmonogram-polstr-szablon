@@ -48,7 +48,7 @@ description: "Lista zadań implementacyjnych kalkulatora harmonogramu POLSTR"
 
 - [ ] T006 [P] [US1] Dodać w `tests/dane.test.ts` testy importu serii POLSTR 1M i WIBOR 3M oraz wyboru właściwej serii przez jej identyfikator
 - [ ] T007 [P] [US1] Dodać w `tests/harmonogram.test.ts` czerwone testy rat malejących, zmiany stopy od daty wpisu, użycia ostatniej znanej wartości serii oraz generowania dat w UTC z przejściem z `2026-01-31` na ostatni dzień lutego `2026-02-28`
-- [ ] T008 [US1] Zaimplementować w `src/dane/wskazniki.ts` import JSON z `dane/polstr-1m.json` i `dane/wibor-3m.json` oraz typowany wybór serii bez modyfikowania plików `dane/`
+- [ ] T008 [US1] Zaimplementować w `src/dane/wskazniki.ts` import JSON z `dane/polstr-1m.json` i `dane/wibor-3m.json`, zdefiniować osobny typ identyfikatora wskaźnika niezależny od `ParametryKredytu` oraz typowany wybór serii bez modyfikowania plików `dane/`
 - [ ] T009 [US1] Rozszerzyć w `src/domena/harmonogram.ts` wybór stopy o najpóźniejszy wpis z `od <= dataRaty`, błąd dla raty sprzed pierwszego wpisu i utrzymanie ostatniej wartości po końcu serii
 - [ ] T010 [US1] Rozszerzyć w `src/domena/harmonogram.ts` generowanie dat miesięcznych w UTC, używając ostatniego dnia miesiąca, gdy docelowy dzień nie istnieje
 - [ ] T011 [US1] Rozszerzyć w `src/domena/harmonogram.ts` obliczenia o typ `malejace`, w którym kapitał jest dzielony równo na pozostałe planowane raty, a saldo nie może spaść poniżej zera
