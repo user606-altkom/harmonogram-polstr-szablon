@@ -73,7 +73,7 @@ description: "Lista zadań implementacyjnych kalkulatora harmonogramu POLSTR"
 
 **Niezależne kryterium testowe**: Ręczne wywołanie kontraktowego adresu zwraca status 200, kompletne raty w groszach i saldo końcowe 0 gr; brak wymaganej wartości zwraca 400 i wyłącznie pole `blad`.
 
-- [ ] T018A Dodać czerwone testy kontraktu API dla odrzucenia `kwota` oraz kwoty `nadplata` z więcej niż dwoma miejscami po przecinku, oczekując statusu 400 i odpowiedzi zawierającej wyłącznie pole `blad`
+- [ ] T018A Rozszerzyć ręczną kontrolę API w T023 o odrzucenie `kwota` oraz kwoty `nadplata` z więcej niż dwoma miejscami po przecinku, oczekując statusu 400 i wyłącznie pola `blad`
 - [ ] T019 Zaimplementować w `app/api/harmonogram/route.ts` parsowanie parametrów kontraktu `kwota`, `liczbaRat`, `pierwszaRata`, `marza`, `typRat`, `wskaznik` i powtarzalnego `nadplata`
 - [ ] T020 Zaimplementować w `app/api/harmonogram/route.ts` jawne odrzucenie kwot `kwota` i `nadplata` z więcej niż dwoma miejscami po przecinku przed konwersją ze złotych do groszy oraz pojedynczą konwersję zaakceptowanych kwot i punktów procentowych marży do ułamka
 - [ ] T021 Podłączyć w `app/api/harmonogram/route.ts` wybór serii z `src/dane/wskazniki.ts` i funkcję z `src/domena/harmonogram.ts`, pozostawiając obliczenia wyłącznie w domenie
